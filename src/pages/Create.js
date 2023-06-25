@@ -6,6 +6,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { makeStyles } from '@mui/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react'
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 // import ButtonGroup from '@mui/material/ButtonGroup';
 // import SendIcon from '@mui/icons-material/Send';
 
@@ -28,6 +29,7 @@ export default function Create() {
   const [detail, setDetail] = useState('')
   const [titleError, setTitleError] = useState(false)
   const [detailError, setDetailsError] = useState(false)
+  const [category, setCategory] = useState('money')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +45,7 @@ export default function Create() {
     }
 
     if (title && detail) {
-      console.log(title, detail);
+      console.log(title, detail,category);
     }
 
   }
@@ -54,8 +56,8 @@ export default function Create() {
         varient="h6"
         color="textSecondary"
         component="h2"
-        gutterbutton
-        >
+        gutterbutton='true'
+      >
         Create a new note
       </Typography>
 
@@ -84,14 +86,25 @@ export default function Create() {
           multiline
           rows={4}
         />
-        <Button 
-          type='submit'
-          variant='contained'
-          color='secondary'
-          // disableElevation
-          // startIcon={<SendIcon/>}
-          endIcon={<KeyboardArrowRightIcon />}
-        >
+
+        {/* <Radio value="hello" />
+        <Radio value="goodbye" /> */}
+
+        <FormControl className={classes.field}>
+          <FormLabel>Note Category</FormLabel>
+          <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
+            <FormControlLabel value="money" control={<Radio />} label="Money" />
+            <FormControlLabel value="todos" control={<Radio />} label="Todos" />
+            <FormControlLabel value="reminders" control={<Radio />} label="Reminders" />
+            <FormControlLabel value="work" control={<Radio />} label="Work" />
+          </RadioGroup>
+        </FormControl>
+        <br />
+        <Button
+          type="submit"
+          color="secondary"
+          variant="contained"
+          endIcon={<KeyboardArrowRightIcon />}>
           Submit
         </Button>
       </form>

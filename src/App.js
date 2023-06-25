@@ -9,12 +9,12 @@ import { purple } from '@mui/material/colors';
 
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#fefefe'
-    },
-    secondary: purple
-  },
+  // palette: {
+  //   primary: {
+  //     main: '#fefefe'
+  //   },
+  //   secondary: purple
+  // },
   typography: {
     fontFamily: 'Quicksand',
     fontWeightLight: 400,
@@ -28,6 +28,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+    {/* <ThemeProvider> */}
     <Router>
       <Switch>
         <Route exact path="/">

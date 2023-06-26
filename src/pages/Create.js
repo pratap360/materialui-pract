@@ -7,9 +7,9 @@ import { makeStyles } from '@mui/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react'
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import ButtonGroup from '@mui/material/ButtonGroup';
 // import SendIcon from '@mui/icons-material/Send';
-
 
 
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 export default function Create() {
 
   const classes = useStyles();
-
+  const history = useHistory();
   const [title, setTitle] = useState('')
   const [detail, setDetail] = useState('')
   const [titleError, setTitleError] = useState(false)
@@ -45,7 +45,12 @@ export default function Create() {
     }
 
     if (title && detail) {
-      console.log(title, detail,category);
+      fetch('http://localhost:8000/notes',{
+        method:'POST',
+        headers:{"Content-type":"application/jsons"},
+        body:JSON.stringify({title,detail,category})
+        // redirect to home page after detials fill 
+      }).then(() => history.push('/'))
     }
 
   }

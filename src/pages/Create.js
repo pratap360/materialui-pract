@@ -47,7 +47,7 @@ export default function Create() {
     if (title && detail) {
       fetch('http://localhost:8000/notes',{
         method:'POST',
-        headers:{"Content-type":"application/jsons"},
+        headers:{"Content-type":"application/json"},
         body:JSON.stringify({title,detail,category})
         // redirect to home page after detials fill 
       }).then(() => history.push('/'))

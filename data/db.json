@@ -19,6 +19,9 @@
       "id": 3
     },
     {
+      "title": "test",
+      "detail": "test",
+      "category": "todos",
       "id": 4
     }
   ]

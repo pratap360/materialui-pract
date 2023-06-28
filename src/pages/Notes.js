@@ -1,4 +1,4 @@
-import { Container, Grid, Paper } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import NoteCard from '../components/NoteCard'
 
@@ -18,7 +18,7 @@ export default function Notes() {
       method:"DELETE"
     })
 
-    const newNotes = notes.filter(note => note.id != id )
+    const newNotes = notes.filter(note => note.id !==id )
     setNotes(newNotes)
 
   }

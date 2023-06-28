@@ -4,7 +4,7 @@ import Create from './pages/Create'
 // import { createMuiTheme, ThemeProvider } from '@mui/core'
 import { createTheme ,ThemeProvider } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-import Layout from './components/layout';
+import Layout from './components/Layout';
 
 
 

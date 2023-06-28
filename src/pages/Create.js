@@ -36,11 +36,11 @@ export default function Create() {
     setTitleError(false)
     setDetailsError(false)
 
-    if (title == '') {
+    if (title === '') {
       setTitleError(true)
     }
 
-    if (detail == '') {
+    if (detail === '') {
       setDetailsError(true)
     }
 

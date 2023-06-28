@@ -1,7 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles';
-import { Drawer } from '@mui/material';
+import { Drawer, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+
 
 const drawerWidth = 240
 const useStyles = makeStyles({
@@ -42,6 +44,19 @@ export default function Layout({ children }) {
             Parui Notes
           </Typography>
         </div>
+
+      <List>
+        <ListItem>
+          <ListItemText primary="Link1"/>
+        </ListItem>
+      </List>
+      <List>
+        <ListItem>
+          <ListItemText primary="Link2"/>
+        </ListItem>
+      </List>
+
+
       </Drawer>
 
       {/* main content */}

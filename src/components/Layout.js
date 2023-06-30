@@ -8,6 +8,8 @@ import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.m
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import { format } from 'date-fns'
+import Avatar from '@material-ui/core/Avatar'
+
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme) =>{
@@ -78,6 +80,7 @@ export default function Layout({ children }) {
           <Typography>
             Pratap
           </Typography>
+          <Avatar className={classes.avatar} src="/avatar-bag.png"/>
         </Toolbar>
       </AppBar>
       

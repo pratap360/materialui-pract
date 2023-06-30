@@ -5,7 +5,9 @@ import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import { format } from 'date-fns'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme) =>{
@@ -29,7 +31,15 @@ const useStyles = makeStyles((theme) =>{
     },
     title:{
         padding:theme.spacing(2)
-    }
+    },
+    appbar:{
+      width:`calc(100% - ${drawerWidth}px)`,
+      marginLeft : drawerWidth,
+    },
+    date:{
+      flexGrow:1,
+    },
+    toolbar:theme.mixins.toolbar
   }
 })
 
@@ -55,6 +65,21 @@ export default function Layout({ children }) {
   return (
     <div className={classes.root}>
       {/* app bar */}
+      <AppBar 
+      position="fixed" 
+      className={classes.appBar}
+      elevation={0}
+      color="primary"
+      >
+        <Toolbar>
+          <Typography>
+            Today is the {format(new Date(),'do MMMM Y')}
+          </Typography>
+          <Typography>
+            Pratap
+          </Typography>
+        </Toolbar>
+      </AppBar>
       
       
       {/* side drawer */}
@@ -65,8 +90,7 @@ export default function Layout({ children }) {
       classes={{ paper: classes.drawerPaper }}
       >
         <div>
-          <Typography
-          varient = 'h3'>
+          <Typography varient = 'h3' className='classes.title'>
             Parui Notes
           </Typography>
         </div>
@@ -88,7 +112,7 @@ export default function Layout({ children }) {
           button 
           onClick={() => histroy.push(item.path)}
           key={item.text}
-          className={location.pathname == item.path ? classes.active : null}>
+          className={location.pathname === item.path ? classes.active : null}>
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
           </ListItem>
@@ -99,6 +123,7 @@ export default function Layout({ children }) {
 
       {/* main content */}
       <div className={classes.page}>
+        <div className={classes.toolbar}></div>
         { children }
       </div>
     </div>

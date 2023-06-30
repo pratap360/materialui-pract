@@ -9,7 +9,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 const useStyles = makeStyles({
     test:{
         border:(note) => {
-            if (note.category ==  'work'){
+            if (note.category ===  'work'){
                 return '1px solid red'
             }
         }
